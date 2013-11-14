@@ -4,6 +4,7 @@
 /db-sync
 /content/upgrade/
 /content/uploads/
+/content/vendor
 .DS_Store
 composer.lock
 *.sublime-project
