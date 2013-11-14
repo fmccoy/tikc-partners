@@ -1,0 +1,153 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: 481px and Up Stylesheet
+
+This stylesheet is loaded for larger devices. It's set to
+481px because at 480px it would load on a landscaped iPhone.
+This isn't ideal because then you would be loading all those
+extra styles on that same mobile connection.
+
+A word of warning. This size COULD be a larger mobile device,
+so you still want to keep it pretty light and simply expand
+upon your base.less styles.
+
+******************************************************************/
+
+body { min-width:660px; }
+
+.header {
+
+
+
+}
+
+
+/*********************
+POSTS & CONTENT STYLES
+*********************/
+
+/* entry content */
+.entry-content {
+
+
+	/* at this larger size, we can start to align images */
+	.alignleft, img.alignleft {
+		margin-right: 1.5em;
+		display: inline;
+		float: left;
+	}
+	.alignright, img.alignright {
+		margin-left: 1.5em;
+		display: inline;
+		float: right;
+	}
+	.aligncenter, img.aligncenter {
+		margin-right: auto;
+		margin-left: auto;
+		display: block;
+		clear: both;
+	}
+
+} /* end .entry-content */
+
+/*********************
+FOOTER STYLES
+*********************/
+
+/*
+check your menus here. do they look good?
+do they need tweaking?
+*/
+.footer-links {
+	ul {
+		li {}
+	}
+} /* end .footer-links */
+
+body #main .fb_iframe_widget { display:inline-block; }
+
+.ad {
+	&#ad2 { height:auto; }
+}
+
+body.single {
+	#main { max-width:640px; }
+	.sidebar { clear:left; width:300px; }
+}
+
+.share a {
+	width:auto;
+	display: inline-block;
+	margin-left:0;
+	margin-right:10px;
+	float:none;
+	text-align:left;
+	padding:.3em 1em .3em 1.8em;
+
+	&:before { left:.1em; }
+}
+
+.cell {
+	display:block;
+	float:left;
+	margin:0 1% 1% 0;
+	//&:nth-child(2n) { margin-right:0; }
+	//&:nth-child(2n+1) { clear:left; }
+	&.n2 { margin-right:0; }
+
+	width:49.5%;
+	height:336px;
+	overflow:hidden;
+
+	header {
+		max-height:200px;
+		overflow:hidden;
+		background:#fff;
+
+		img {
+			//width:315px;
+			//height:200px;
+			&:hover { opacity:.85; }
+		}
+	}
+
+	section {
+		padding:8px;
+	}
+}
+
+#connect {
+	font-size:1.125em;
+}
+
+#main.company #company-details .map { float:left; margin:0 .5em 0 0; width:53.75%; }
+
+.company-vcard {
+	.clearfix();
+	img { float:right; margin:0 0 0 1em; }
+}
+
+ul.articles li, #featured li {
+	border:0;
+	h3 { font-size:1.6em; }
+	h4 { font-size:1.2em; }
+	.img {
+		width:46.875%;
+		max-width:300px;
+		float:left;
+		margin:0 20px 1em 0;
+	}
+	div.story { padding:0; }
+}
+
+.product-image {
+	.actions {
+		a {
+			padding:6%;
+			font-size:3em;
+			text-shadow:2px 2px 0 rgba(0,0,0,.05);
+		}
+	}
+}

@@ -1,0 +1,1424 @@
+/******************************************************************
+Site Name: KC Magazine
+Author: Landon Springer
+
+Stylesheet: Base Mobile Stylesheet
+
+Be light and don't over style since everything here will be
+loaded by mobile devices. You want to keep it as minimal as
+possible. This is called at the top of the main stylsheet
+and will be used across all viewports.
+
+------------ MAP ------------
+
+01. GENERAL STYLES
+02. WORDPRESS BODY CLASSES
+03. LAYOUT & GRID STYLES
+04. LINK STYLES
+05. H1, H2, H3, H4, H5 STYLES
+06. HEADER STYLES
+07. NAVIGATION STYLES
+08. POSTS & CONTENT STYLES
+09. PAGE NAVI STYLES
+10. COMMENT STYLES
+11. COMMENT FORM STYLES
+12. SIDEBARS & ASIDES
+13. FOOTER STYLES
+
+******************************************************************/
+
+/*********************
+01. GENERAL STYLES
+*********************/
+
+html, body {
+
+}
+*, *:before, *:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+body {
+	font-family: @sans-serif;
+	font-size: 100%;
+	line-height: 1.5;
+	color: #565656;
+	min-width:320px;
+}
+
+/********************
+02. WORDPRESS BODY CLASSES
+    style a page via class
+********************/
+
+.rtl {}                           /* for sites that are read right to left (i.e. hebrew) */
+.home {}                          /* home page */
+.blog {}                          /* blog template page */
+.archive {}                       /* archive page */
+.date {}                          /* date archive page */
+	.date-paged-1 {}                /* replace the number to the corresponding page number */
+.search {}                        /* search page */
+	.search-results {}              /* search result page */
+	.search-no-results {}           /* no results search page */
+	.search-paged-1 {}              /* individual paged search (i.e. body.search-paged-3) */
+.error404 {}                      /* 404 page */
+.single {}                        /* single post page */
+	.postid-1 {}                    /* individual post page by id (i.e. body.postid-73) */
+	.single-paged-1 {}              /* individual paged single (i.e. body.single-paged-3) */
+.attachment {}                    /* attatchment page */
+	.attachmentid-1 {}              /* individual attatchment page (i.e. body.attachmentid-763) */
+	.attachment-mime-type {}        /* style mime type pages */
+.author {}                        /* author page */
+	.author-nicename {}             /* user nicename (i.e. body.author-samueladams) */
+	.author-paged-1 {}              /* paged author archives (i.e. body.author-paged-4) for page 4 */
+.category {}                      /* category page */
+	.category-1 {}                  /* individual category page (i.e. body.category-6) */
+	.category-paged-1 {}            /* replace the number to the corresponding page number */
+.tag {}                           /* tag page */
+	.tag-slug {}                    /* individual tag page (i.e. body.tag-news) */
+	.tag-paged-1 {}                 /* replace the number to the corresponding page number */
+.page-template {}                 /* custom page template page */
+	.page-template-page-php {}      /* individual page template (i.e. body.page-template-contact-php */
+	.page-paged-1 {}                /* replace the number to the corresponding page number */
+	.page-parent {}                 /* parent page template */
+	.page-child {}                  /* child page template */
+	.parent-pageid-1 {}             /* replace the number to the corresponding page number */
+.logged-in {}                     /* if user is logged in */
+.paged {}                         /* paged items like search results or archives */
+	.paged-1 {}                     /* individual paged (i.e. body.paged-3) */
+
+/*********************
+03. LAYOUT & GRID STYLES
+*********************/
+
+.wrap {
+	width: 96%;
+	margin: 0 auto;
+}
+#container {}
+
+/*********************
+04. LINK STYLES
+*********************/
+
+a {
+	color: @link-color;
+
+	/* on hover */
+	&:hover, &:focus {
+		color: @link-hover;
+	}
+
+	/* on click */
+	&:active {
+
+	}
+
+	/* mobile tap color */
+	&:link {
+		/*
+		this highlights links on iPhones/iPads.
+		so it basically works like the :hover selector
+		for mobile devices.
+		*/
+		-webkit-tap-highlight-color : rgba( 0, 0, 0, 0.3 );
+	}
+}
+
+/******************************************************************
+05. H1, H2, H3, H4, H5 STYLES
+******************************************************************/
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
+	font-family: @sans-serif;
+	text-rendering: optimizelegibility;
+	font-weight: normal;
+	/*
+	if you're going to use webfonts, be sure to check your weights
+	http://css-tricks.com/watch-your-font-weight/
+	*/
+
+	/* removing text decoration from all headline links */
+	a {
+		text-decoration: none;
+	}
+}
+
+h1, .h1 {
+	font-size: 2.5em;
+	line-height: 1.333em;
+}
+
+h2, .h2 {
+	font-size: 1.75em;
+	line-height: 1.4em;
+	margin-bottom: 0.375em;
+}
+
+h3, .h3 {
+	font-size: 1.4em;
+}
+
+h4, .h4 {
+	font-size: 1.25em;
+	//font-weight: 700;
+}
+
+h5, .h5 {
+	font-size: 1.125em;
+	line-height: 2.09em;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+/*********************
+06. HEADER STYLES
+*********************/
+
+.site-header {
+
+	background:url(../images/header-v2.jpg) no-repeat center center #1e8acb;
+	background-size:cover;
+	.boxShadow(0 2px 3px rgba(0,0,0,.2));
+	position:relative;
+
+	#inner-header { .clearfix(); }
+
+	#logo {
+		margin:10px 10px 10px 5.15463917525773%;
+		display:block;
+		float:left;
+		width:100%;
+		max-width: 115px;
+		.responsiveImages();
+	}
+
+	nav ul {
+		border:0;
+		margin:0;
+		padding:.4em 0;
+		float:left;
+		margin-left:20px;
+		background:@link-color;
+		li {
+			line-height:1.6em;
+			a {
+				font-family: @sans-serif-bold;
+				color:white;
+				text-shadow:none;
+				padding:.3em .6em;
+				line-height:1;
+				text-transform:uppercase;
+				display:block;
+				&:hover { background:#086fbe; }
+			}
+		}
+	}
+
+	a.search-icon,
+	form { display:none; }
+}
+
+/*********************
+07. NAVIGATION STYLES
+*********************/
+
+/*
+all navs have a .nav class applied via
+the wp_menu function; this is so we can
+easily write one group of styles for
+the navs on the site so our css is cleaner
+and more scalable.
+*/
+
+.nav {
+
+	li {
+
+		a {
+			display: block;
+			text-decoration: none;
+			.transition();
+		}
+
+		&:first-child {}
+		&:last-child {}
+
+		/*
+		so you really have to rethink your dropdowns for mobile.
+		you don't want to have it expand too much because the
+		screen is so small. How you manage your menu should
+		depend on the project. Here's some great info on it:
+		http://www.alistapart.com/articles/organizing-mobile/
+		*/
+		ul.sub-menu,
+		ul.children {
+
+			li {
+
+				a {
+					padding-left: 30px;
+
+					&:hover,
+					&:focus {}
+
+					&:link {}
+
+				}
+
+				&:first-child {}
+
+				&:last-child {}
+
+			}
+
+		}
+
+	} /* end .menu li */
+
+	/* highlight current page */
+	li.current-menu-item,
+	li.current_page_item,
+	li.current_page_ancestor {
+
+		a {}
+
+	}  /* end current highlighters */
+
+} /* end .nav */
+
+
+/*********************
+08. POSTS & CONTENT STYLES
+*********************/
+
+#error {
+	margin-top:12px;
+	text-align:center;
+	text-transform:uppercase;
+	color:#fff;
+	padding:1em;
+	background:#933;
+}
+
+#success {
+	margin-top:12px;
+	text-align:center;
+	text-transform:uppercase;
+	color:#fff;
+	padding:1em;
+	background:#393;
+}
+
+#connect {
+	display:none;
+	margin-top:12px;
+	text-align:center;
+	text-transform: uppercase;
+	background:#086ebe;
+	color:#fff;
+	//font-family:@sans-serif-bold;
+	font-size:0.875em;
+
+	p { margin:0; display:none; }
+
+	img { vertical-align:middle; margin:.36em; }
+
+	&.logged-in {
+		.clearfix();
+		a { width:48.5%; margin:0 1% 0 0%; float:right; text-align:center; }
+	}
+}
+
+	a.facebook-connect, #connect a {
+		display:block;
+		background:#1888cc;
+		color:#fff;
+		text-transform: uppercase;
+		text-decoration: none;
+		padding:.6em;
+
+		position:relative;
+		&:before { font-size:2.4em; opacity:.3; position:absolute; top:.075em; left:.2em; }
+		&:hover { background: @highlight-color; }
+	}
+
+#content {
+
+	#inner-content {}
+
+	header#featured {
+		position:relative;
+		ul {
+			position:relative;
+			overflow:hidden;
+			li {
+				display:none;
+				&:first-child { display:block; }
+
+				a.img {
+					background-size:cover;
+					background-position:center center;
+					background-repeat:no-repeat;
+					height:200px;
+				}
+
+				.excerpt { padding-right: 3em; }
+
+			}
+		}
+		nav {
+			position:relative;
+			height:2em;
+			margin-bottom:1em;
+			font-size:1.25em;
+			a {
+				.transition();
+				background:rgba(0,0,0,.4);
+				color:#fff;
+				font-family:@sans-serif-bold;
+				padding:.5em;
+				position:absolute;
+				text-decoration:none;
+				&:hover { background:#000; }
+				&.next { right:0; }
+			}
+		}
+	}
+}
+
+#main { margin-top:12px; }
+
+		.cell {
+			border:1px solid #ccc;
+			background:#fff;
+			margin-bottom:1em;
+
+			header {
+				//max-height:200px;
+				overflow:hidden;
+				a { display:block; text-align:center; }
+				.responsiveImages();
+			}
+
+			section { padding:.3em 1em; }
+			h3 {
+				font-size:1.25em; margin:0 0 .1em; line-height:1.25em; text-transform:uppercase; font-weight:normal;
+				a {
+					color:#000;
+					display:block;
+					&:hover { text-decoration:underline; }
+				}
+			}
+			h4 { margin:0; font-weight:normal; font-size:0.875em; text-transform:uppercase; }
+			h4 a {
+				color:@accent-color;
+				display:block;
+				&:hover { text-decoration:underline; }
+			}
+			p {
+				font-size:.875em;
+				color:@accent-color;
+				margin:0;
+				line-height:1.3;
+				a {
+					color:@accent-color;
+					&:hover { color:@link-color; }
+				}
+			}
+		}
+
+		.hentry {
+
+			header {}
+
+			footer {}
+
+		} /* end .hentry */
+
+		.single-title,
+		.page-title {}
+
+		.single-title {}
+
+		.page-title {}
+
+		.archive-title { }
+
+		/* want to style individual post classes? Booya! */
+		.post-id {}         /* post by id (i.e. post-3) */
+		.post {}            /* general post style */
+		.page {}            /* general article on a page style */
+		.attachment {}      /* general style on an attatchment */
+		.sticky {}          /* sticky post style */
+		.hentry {}          /* hentry class */
+		.category-slug {}   /* style by category (i.e. category-videos) */
+		.tag-slug {}        /* style by tag (i.e. tag-news) */
+
+		/* post meta */
+		.byline {
+			color: @accent-color;
+			font-size:0.875em;
+
+			time {}
+		}
+
+		.article-header {
+			h1 { font-size: 1.5em; color:#000; margin:0 0 .3em; text-transform:uppercase; line-height:0.9em; }
+			h2 { font-size: 0.875em; color:@accent-color; margin:0; text-transform:uppercase; }
+		}
+
+		.share {
+			&.article-share { .clearfix(); }
+			a {
+				display:block;
+				width:32%;
+				margin-left:2%;
+				&:first-child { margin-left:0; }
+				float:left;
+				text-align:center;
+				padding:.3em .6em .3em 1.6em;
+
+				font-family:@arial;
+				font-weight:bold;
+				font-size:.875em;
+				//text-transform:uppercase;
+				text-decoration:none;
+				color:white;
+
+				position:relative;
+
+				&:before { font-size:2em; position:absolute; top:-1px; left:0px; font-weight:normal; }
+
+				&.facebook	{ background:#3b5998; &:hover { background:darken(#3b5998, 9%) } }
+				&.twitter	{ background:#019ad2; &:hover { background:darken(#019ad2, 9%) } }
+				&.pinterest	{ background:#ab171e; &:hover { background:darken(#ab171e, 9%) } }
+			}
+		}
+
+		/* entry content */
+		.entry-content {
+
+			position:relative;
+
+			font-family:@arial;
+			color:#222;
+			font-size:0.875em;
+
+			p {}
+
+
+			ul, ol, table, dl {}
+
+			ul, ol {
+
+				li {}
+
+			}
+
+			ul {
+
+				li {}
+
+			}
+
+			ol {
+
+				li {}
+
+			}
+
+			blockquote {
+
+				position:relative;
+				background:#f6f6f6;
+				padding:1em 1em 1em 4em;
+				margin:1em 0;
+				font-family:georgia,times,serif;
+				color:#000;
+				font-style:italic;
+				line-height:2em;
+
+				&:before {
+					display: block;
+					content: "\201C";
+					font-size: 6em;
+					position: absolute;
+					left: .1em;
+					top: .5em;
+					color: #ccc;
+				}
+
+			}
+
+			dl {}
+
+			dt {}
+
+			dd {
+				margin-left: 0;
+				font-size: 0.9em;
+				color: #787878;
+				margin-bottom: 1.5em;
+			}
+
+			img {
+				margin: 0 0 1.5em 0;
+				max-width: 100%;
+				height: auto;
+			}
+
+			/*
+			image alignment on a screen this size may be
+			a bit difficult. It's set to start aligning
+			and floating images at the next breakpoint,
+			but it's up to you. Feel free to change it up.
+			*/
+			.alignleft, img.alignleft {}
+			.alignright, img.alignright {}
+			.aligncenter, img.aligncenter {}
+
+			video, object {
+				max-width: 100%;
+				height: auto;
+			}
+
+			pre {
+				background: #eee;
+				border: 1px solid #cecece;
+				padding: 10px;
+			}
+
+		} /* end .entry-content */
+
+		.wp-caption {
+			max-width: 100%;
+			background: #eee;
+			padding: 5px;
+
+			/* images inside wp-caption */
+			img {
+				max-width: 100%;
+				margin-bottom: 0;
+				width: 100%;
+			}
+
+			p.wp-caption-text {
+				font-size: 0.85em;
+				margin: 4px 0 7px;
+				text-align: center;
+			}
+
+		} /* end .wp-caption */
+
+		/* image gallery styles */
+		.gallery {
+
+			dl {
+
+				a {}
+
+				img {}
+
+			}
+
+			dt {}
+
+			dd {}
+
+		} /* end .gallery */
+
+		/* gallery caption styles */
+		.gallery-caption {}
+
+		.size-full {}
+		.size-large {}
+		.size-medium {}
+		.size-thumbnail {}
+
+		hr { height:0; border:0; color:#eee; border-top:6px solid #eee; margin:1em auto; }
+
+/******************************************************************
+09. PAGE NAVI STYLES
+******************************************************************/
+
+.page-navigation,
+.wp-prev-next {
+	margin: 1.1em 0 2.2em;
+}
+	.bones_page_navi {
+
+		li {
+			float: left;
+			margin-left: 10px;
+
+			a {
+				padding: 3px 6px;
+				display: block;
+				text-decoration: none;
+				position: relative;
+
+				&:hover,
+				&:focus {
+					color: #f01d4f;
+					text-decoration: underline;
+				}
+			}
+
+		}
+
+		/* current page link */
+		li.bpn-current {
+			padding: 3px 6px;
+			border-bottom: 2px solid #f01d4f;
+			position: relative;
+
+			a {
+				/* hovering on current page link */
+				&:hover,
+				&:focus {}
+
+			}
+
+		} /* end .bones_page_navi .bpn-current */
+
+		/* common styles for page-navi links */
+		li.bpn-prev-link,
+		li.bpn-next-link {
+			font-weight: 700;
+
+			a {
+				padding: 0;
+			}
+		}
+
+		/* remove the bg on end links */
+		li.bpn-prev-link a:hover,
+		li.bpn-next-link a:hover,
+		li.bpn-first-page-link a:hover,
+		li.bpn-last-page-link a:hover {
+			background: none;
+		}
+
+		/* previous link */
+		li.bpn-prev-link {
+			a {
+				&:hover,
+				&:focus {}
+			}
+		}
+
+		/* next page link */
+		li.bpn-next-link {
+			a {
+				&:hover,
+				&:focus {}
+			}
+		}
+
+		/* first page link */
+		li.bpn-first-page-link {
+			a {
+				&:hover,
+				&:focus {}
+			}
+		}
+
+		/* last page link */
+		li.bpn-last-page-link {
+			a {
+				&:hover,
+				&:focus {}
+			}
+		}
+
+	} /* end .bones_page_navi */
+
+	/* fallback previous & next links */
+	.wp-prev-next {
+
+		ul {}
+
+		.prev-link {
+			float: left;
+		}
+
+		.next-link {
+			float: right;
+		}
+
+	} /* end .wp-prev-next */
+
+/******************************************************************
+10. COMMENT STYLES
+******************************************************************/
+
+/* h3 comment title */
+#comments {
+
+	/* number of comments span */
+	span {}
+
+}
+
+.comment-nav {
+
+	ul {
+
+		li {}
+
+	}
+}
+
+
+.commentlist {
+
+	li {
+		position: relative;
+		clear: both;
+		overflow: hidden;
+		list-style-type: none;
+		margin-bottom: 1.5em;
+		padding: 0.7335em 10px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		ul.children {
+			margin: 0;
+
+			li {}
+
+			/* variations */
+			.comment {}
+			.alt {}
+			.odd {}
+			.even {}
+			.depth-1 {}           /* change number for different depth */
+			.byuser {}
+			.bypostauthor {}
+			.comment-author-admin {}
+
+		} /* end .commentlist li ul.children */
+	}
+
+	li[class*=depth-] {
+		margin-top: 1.1em;
+	}
+
+	li.depth-1 {
+		margin-left: 0;
+		margin-top: 0;
+	}
+
+	li:not(.depth-1) {
+		margin-right: -10px;
+		margin-left: -10px;
+		margin-top: 0;
+		padding-bottom: 0;
+	}
+
+	li.depth-2 {}
+	li.depth-3 {}
+	li.depth-4 {}
+	li.depth-5 {}
+
+	/* general comment classes */
+	.alt {}
+	.odd {
+		background: #eee;
+	}
+	.even {
+		background: #fefefe;
+	}
+	.parent {}
+	.comment {}
+	.children {}
+	.pingback {}
+	.bypostauthor {}
+	.comment-author {}
+	.comment-author-admin {}
+	.thread-alt {}
+	.thread-odd {}
+	.thread-even {}
+
+	/* vcard */
+	.vcard {
+		margin-left: 50px;
+
+		cite.fn {
+			font-weight: 700;
+			font-style: normal;
+
+			a.url {}
+
+		}
+
+		time {
+			float: right;
+
+			a {
+				color: #999;
+				text-decoration: none;
+
+				&:hover {
+					text-decoration: underline;
+				}
+
+			}
+
+		}
+
+		img.photo {}
+
+		img.avatar {
+			position: absolute;
+			left: 10px;
+			padding: 2px;
+			border: 1px solid #cecece;
+			background: #fff;
+		}
+
+	} /* end .commentlist .vcard */
+
+
+	/* comment meta */
+	.comment-meta {
+
+		a {}
+
+	}
+
+	.commentmetadata {
+
+		a {}
+
+	}
+
+	/* comment content */
+	.comment_content {
+		margin-left: 50px;
+
+		p {
+			margin: 0.7335em 0 1.5em;
+			font-size: 1em;
+			line-height: 1.5em;
+		}
+
+	} /* end .commentlist .comment_content */
+
+	/* comment reply link */
+	.comment-reply-link {
+		text-decoration: none;
+		float: right;
+		background: #4598bb;
+		padding: 3px 5px;
+		color: #fff;
+		opacity: 0.65;
+		margin-bottom: 10px;
+		font-weight: 700;
+		font-size: 0.9em;
+
+		&:hover,
+		&:focus {
+			opacity: 1;
+		}
+
+	} /* end .commentlist .comment-reply-link */
+
+} /* end .commentlist */
+
+/******************************************************************
+11. COMMENT FORM STYLES
+******************************************************************/
+
+.respond-form {
+	margin: 1.5em 10px;
+	padding-bottom: 2.2em;
+
+	form {
+		margin: 0.75em 0;
+
+		li {
+			list-style-type: none;
+			clear: both;
+			margin-bottom: 0.7335em;
+
+			label,
+			small {
+				display: none;
+			}
+		}
+
+		input[type=text],
+		input[type=email],
+		input[type=url],
+		textarea {
+			padding: 3px 6px;
+			background: #efefef;
+			border: 2px solid #cecece;
+			line-height: 1.5em;
+
+			&:focus {
+				background: #fff;
+			}
+
+			/* form validation */
+			&:invalid {
+				outline: none;
+				border-color: #fbc2c4;
+				background-color: #f6e7eb;
+				-webkit-box-shadow: none;
+				   -moz-box-shadow: none;
+				    -ms-box-shadow: none;
+						box-shadow: none;
+			}
+		}
+
+		input[type=text],
+		input[type=email],
+		input[type=url] {
+			max-width: 400px;
+			min-width: 250px;
+		}
+
+		textarea {
+			resize: none;
+			width: 97.3%;
+			height: 150px;
+		}
+
+	}
+}
+
+	/* comment submit button */
+	#submit {}
+
+	/* comment form title */
+	#comment-form-title {
+		margin: 0 0 1.1em;
+	}
+
+	/* cancel comment reply link */
+	#cancel-comment-reply {
+		a {}
+	}
+
+	/* logged in comments */
+	.comments-logged-in-as {}
+
+	/* allowed tags */
+	#allowed_tags {
+		margin: 1.5em 10px 0.7335em 0;
+	}
+
+	/* no comments */
+	.nocomments {
+		margin: 0 20px 1.1em;
+	}
+
+/*********************
+12. SIDEBARS & ASIDES
+*********************/
+
+.sidebar {
+	width:300px;
+}
+
+	.widgettitle {
+		color:#fff;
+		background:#4ab5e1;
+		padding:.2em .6em;
+		text-transform:uppercase;
+		font-size:1.25em;
+		margin-bottom: 1.25em;
+		//font-family:@sans-serif-bold;
+	}
+
+	.widget {
+
+		ul {
+
+			li {
+
+				&:first-child {}
+
+				&:last-child {}
+
+				a {}
+
+				/* deep nesting */
+				ul {}
+
+			}
+
+		}
+
+	}
+
+	.widget_trending_articles_widget {
+		.widgetLink();
+	}
+
+/*********************
+13. FOOTER STYLES
+*********************/
+
+.site-footer {
+	clear: both;
+	background:none;
+	border:0;
+	background-color:#3FAEDD;
+	color:#fff;
+	font-size:0.875em;
+	margin:0;
+	padding:1em;
+
+	nav {
+		ul.nav {
+			li {
+				a { color:#fff; &:hover { text-decoration:underline; } }
+
+				&:first-child {}
+
+				&:last-child {}
+			}
+		}
+	}
+}
+
+	/*
+	if you checked out the link above:
+	http://www.alistapart.com/articles/organizing-mobile/
+	you'll want to style the footer nav
+	a bit more in-depth. Remember to keep
+	it simple because you'll have to
+	override these styles for the desktop
+	view.
+	*/
+	.footer-links {
+
+		ul {
+
+			li {}
+
+		}
+
+	} /* end .footer-links */
+
+
+	.copyright {}
+
+
+body #main .fb_iframe_widget { display:none; }
+
+.ad {
+	overflow:hidden;
+	display:block;
+	//.responsiveImages();
+
+	//&#ad1 { display:none; }
+	&#ad1 { min-height:90px; background:#eee; text-align:center; margin-top: 12px; }
+	&#ad2 { height:250px; overflow:visible; }
+
+	&.cell {
+		background:#eee;
+		text-align:center;
+		div { display:inline-block; }
+	}
+}
+
+#related-stories {
+
+	.widgetLink();
+
+	li {
+		margin-bottom: 1em;
+		a {
+			img { max-width:204px; }
+		}
+	}
+}
+
+@media screen and (min-height: 768px) and (min-width: 768px) {
+	body .header { position:fixed }
+}
+
+.iframe-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+
+	iframe,object,embed {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+form {
+	.control-group {
+		.clearfix();
+		position:relative;
+		font-size:1em;
+		.control-label {
+			width:140px;
+			float:left;
+			margin-top:1.6em;
+			span.req {
+				display:inline-block;
+				float:left;
+				color:#c87575 !important;
+				font-weight:bold;
+				margin:0;
+				padding:0;
+				font-size:2em;
+				line-height:1.2em;
+			}
+		}
+		p { margin:0 }
+		.controls {
+			margin-left:160px;
+		}
+		input, textarea {
+			background:#f3f3f3;
+			width:100%;
+			max-width:300px;
+			border:0;
+			padding:.3em .8em;
+			margin-top:1em;
+			.border-radius(8px);
+			.boxShadow(inset 1px 1px 2px rgba(0,0,0,.22));
+			color:#444;
+			//text-transform:uppercase;
+			font-family:@sans-serif-regular;
+			font-size:1.25em;
+			outline: none;
+			.transition();
+
+			&:focus {
+				background:rgba(23,136,203,.1);
+				.boxShadow(inset 1px 1px 2px rgba(23,136,203,.3));
+				color:#1788cb;
+			}
+		}
+		input[type="checkbox"] { width:auto; }
+		label.checkbox { color:@link-color; font-size:0.875em; display:block; width:240px; }
+
+		.address textarea { height:3.2em; }
+		textarea { height:6.4em }
+	}
+	.form-actions { margin-top:1em; margin-left:160px; }
+	&.form-vertical .control-group .controls {
+		margin:.5em 0;
+		input, textarea {
+			margin-top:0;
+		}
+	}
+	label.error { display:block; color:#933; }
+}
+
+#content.page article {
+
+	ul, ol {
+		margin: 1em;
+		li { margin:1em; }
+	}
+	ul { list-style-type:disc; }
+	ol { list-style-type:decimal; }
+	p { margin:1em 0; font-family:@arial;}
+
+	h2,h3,h4,h5,h6 { color:#086ebe; font-family:@sans-serif-bold; }
+}
+
+.modal {
+	position: relative;
+	background: #FFF;
+	margin: 20px auto;
+	width:auto;
+
+	h1, h2 { color:#000; text-transform:uppercase; font-size:1.375em; font-family:@sans-serif-bold; }
+	h2 { font-size:1em; }
+
+	&#connect-modal {
+		padding: 4% 5%;	
+		max-width: 500px;
+		text-align:center;
+
+		h2, h3 { color:#1787cc; text-transform:uppercase; font-size:1.375em; font-family:@sans-serif-bold; }
+		h3 { font-size:1em; }
+		.facebook { max-width:300px; margin:0 auto; }
+		nav {
+			font-size:.875em;
+			a {
+				color:#000;
+				&:hover { color:@link-color; }
+			}
+		}
+	}
+}
+
+.actions {
+	position:absolute;
+	display:none;
+	text-align:center;
+	a {
+		display:inline-block;
+		margin:1%;
+		padding:.6em;
+		font-size:2em;
+		font-family:@sans-serif-bold;
+		text-shadow:none;
+		color:@link-color;
+		background:rgba(255,255,255,.9);
+		text-align:center;
+		text-transform:uppercase;
+		text-decoration:none;
+		.boxShadow(inset 0 0 40px rgba(0,0,0,.05));
+
+		&:hover {
+			background:rgba(26,137,203,.9);
+			color:#fff;
+		}
+	}
+
+	&.touch {
+		display:block;
+		text-align:right;
+		a {
+			margin:1% 1% 0 0;
+			padding:.6em;
+			font-size:1em;
+		}
+	}
+}
+
+
+
+.img-share {
+	white-space:nowrap;
+	min-width:240px;
+	a { width:auto; }
+}
+
+#main.company {
+
+	margin-top:3em;
+
+	h2 { text-transform:uppercase; color:#000; font-size:1.4em; margin:1em 0; }
+
+	#company-details {
+		background:#eee;
+		a.map {
+			display:block;
+			max-width:344px;
+			margin:0 auto;
+			.responsiveImages();
+		}
+		li {
+			font-size:1.125em;
+			background:#f8f8f8;
+			margin-bottom:2px;
+			a {
+				display:block;
+				line-height:1.1em;
+				color:#000;
+				padding:.6em 1em;
+				&:hover { background:#f4f4f4; }
+				&:before { display:block; float:left; margin-right:.5em; position:relative; top:-.6em; content:' '; background:url(../images/icons.png) no-repeat; width:40px; height:40px; }
+			}
+
+			&.address a:before			{ background-position:0 0; top:0;  }
+			&.address a:hover:before	{ background-position:-40px 0; }
+
+			&.phone a:before			{ background-position:0 -40px; }
+			&.phone a:hover:before		{ background-position:-40px -40px; }
+
+			&.website a:before			{ background-position:0 -80px; }
+			&.website a:hover:before	{ background-position:-40px -80px; }
+		}
+	}
+
+}
+
+.company-vcard {
+	margin:1em 0;
+	border-top:2px solid #ddd;
+	padding:1em 0;
+	font-size:1em;
+	line-height:1.2em;
+	img { margin:0 0 1em; }
+	h3 {
+		margin:0 0 .2em 0;
+		font-size:1.2em;
+	}
+	p { margin:0; }
+	a {
+		color:#000;
+		text-decoration:underline;
+		&:hover { color:@link-color; }
+	}
+	//span { margin-right:1em; }
+}
+
+a.close {
+	float:right;
+	color:#999;
+	font-family:@sans-serif-bold;
+	text-decoration:none;
+	font-size:1.8em;
+	line-height:.8em;
+	&:hover { color:#666; }
+}
+
+ul.articles li, #featured li {
+	.clearfix();
+	margin-bottom: 1em;
+	border:1px solid #ccc;
+	background:#fff;
+	.img {
+		display:block;
+		.responsiveImages();
+	}
+	div.story { overflow:hidden; padding:1em; }
+	h3, h4 {
+		margin:0;
+		font-size:1.2em;
+		a {
+			display:block;
+			text-transform:uppercase;
+			line-height:1.1em;
+			color:#000;
+			&:hover { color:@link-color; }
+			//text-decoration:underline;
+		}
+	}
+	h4 { font-size:1em; margin-top:.4em; a { color:@accent-color; } }
+	div.excerpt {
+		font-family:@arial;
+		font-size:0.875em;
+		line-height:1.3em;
+		color:#000;
+	}
+}
+
+#global-social {
+	background:#000;
+	padding:4px;
+	height:28px;
+	text-align:center;
+
+	.fb-like { margin-left:10px; }
+}
+
+body {
+	div.center.jGrowl div.jGrowl-notification {
+		width:100%;
+		text-align:center;
+		font-size:1.5em;
+	}
+}

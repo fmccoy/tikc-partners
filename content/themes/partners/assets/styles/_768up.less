@@ -1,0 +1,399 @@
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Tablet & Small Desktop Stylesheet
+
+Here's where you can start getting into the good stuff.
+This size will work on iPads, other tablets, and desktops.
+So you can start working with more styles, background images,
+and other resources. You'll also notice the grid starts to
+come into play. Have fun!
+
+******************************************************************/
+
+@header-height: 154px;
+
+/*********************
+GENERAL STYLES
+*********************/
+
+body {
+	padding-top:@header-height + 28;
+}
+
+/*********************
+LAYOUT & GRID STYLES
+*********************/
+
+.wrap {
+	width:100%;
+	max-width: 970px;
+
+}
+
+/*********************
+HEADER STYLES
+*********************/
+
+.header {
+
+	height:@header-height;
+
+	position:absolute;
+	left:0;
+	top:28px;
+	right:0;
+	width:100%;
+	z-index:100;
+
+	#global-social {
+		position:absolute;
+		bottom:100%;
+		width:100%;
+		text-align:right;
+	}
+
+	body.admin-bar & { top:56px; }
+
+	#inner-header { height:100%; position:relative; }
+
+	#logo { float:left; }
+
+	nav {
+		position:absolute;
+		bottom:.25em;
+		right:40px;;
+		background:none;
+		display:block;
+
+		font-size:1.25em;
+		letter-spacing:0.025em;
+		//font-weight:bold;
+
+		ul {
+			background:none;
+			padding:0;
+			float:none;
+			li {
+				color:white;
+				float:left;
+				display:block;
+				position:relative;
+				line-height:1;
+				&:before { bottom: .35em; content: "."; fleft: 0; position: absolute; }
+				&:first-child:before { display:none; }
+
+				a {
+					background:none;
+					display:block;
+					line-height:1;
+					&:hover { background:none; text-decoration:underline; }
+					//border-bottom:2px dotted transparent;
+					//&:hover { border-bottom-color:#fff; }
+				}
+			}
+		}
+	}
+
+	a.search-icon {
+		display:block;
+		width:37px;
+		height:37px;
+		text-indent:100%;
+		white-space:nowrap;
+		overflow:hidden;
+		position:absolute;
+		bottom:.25em;
+		right:0;
+		background:url(../images/search-icon.png) no-repeat;
+	}
+
+	form {
+		position:absolute;
+		right:0;
+		top:100%;
+		background:#ddd;
+		//.boxShadow(0 0 8px rgba(0,0,0,.3));
+		width:100%;
+		text-align:right;
+
+/*		input[type="text"] {
+			font-family:@sans-serif-regular;
+			width:280px;
+			.border-radius(10px);
+			padding:0.6em 1.2em;
+			border:1px solid @link-color;
+			color:@link-color;
+		}*/
+
+		input[type="submit"] { display:none; }
+		input[type="text"] {
+			width:100%;
+			background:none;
+			border:0;
+			font-size:3em;
+			padding:.4em .8em;
+			color:#444;
+			outline: none;
+
+			&::-webkit-input-placeholder { /* WebKit browsers */
+				color:    #999;
+			}
+			&:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+				color:    #999;
+			}
+			&::-moz-placeholder { /* Mozilla Firefox 19+ */
+				color:    #999;
+			}
+			&:-ms-input-placeholder { /* Internet Explorer 10+ */
+				color:    #999;
+			}
+		}
+
+	}
+}
+body.logged-in .fb-login-button { display:none; }
+
+#connect, #connect.logged-in {
+
+	text-align:left;
+	padding: 0;
+
+	p {
+		display:block;
+		&.padded { padding:1em; }
+	}
+	a {
+		float:right;
+		width:auto; margin:0 0 0 12px;
+
+		&.facebook-connect {
+			//margin:-1em -1em -1em 1em;
+			padding:1em 1em 1em 3.6em;
+		}
+	}
+
+	//&.logged-in {
+	//	a { width:auto; margin:0 0 0 12px; }
+	//}
+}
+
+a.facebook-connect, #connect a {
+	padding:1em;
+	&:before { font-size:3em; }
+}
+
+		.article-header {
+			h1 { font-size: 2.5em; }
+			h2 { font-size: 1.5em; }
+		}
+
+/*********************
+SIDEBARS & ASIDES
+*********************/
+
+.sidebar {
+	margin-top: 0;
+	width:300px;
+}
+
+	.widgettitle {}
+
+	.widget {
+		padding: 0;
+		margin: 2.8em 0;
+
+		ul {
+			li {
+				margin-bottom: 1.5em;
+
+				&:first-child {}
+				&:last-child {}
+				a {}
+				/* deep nesting */
+
+				ul {
+					margin-top: 0.75em;
+					padding-left: 1em;
+				}
+			}
+		}
+	}
+
+
+	/* links widget */
+	.widget_links {}
+	.widget_links ul {}
+	.widget_links ul li {}
+	.widget_links ul li a {}
+
+	/* meta widget */
+	.widget_meta {}
+	.widget_meta ul {}
+	.widget_meta ul li {}
+	.widget_meta ul li a {}
+
+	/* pages widget */
+	.widget_pages {}
+	.widget_pages ul {}
+	.widget_pages ul li {}
+	.widget_pages ul li a {}
+
+	/* recent-posts widget */
+	.widget_recent_entries {}
+	.widget_recent_entries ul {}
+	.widget_recent_entries ul li {}
+	.widget_recent_entries ul li a {}
+
+	/* archives widget */
+	.widget_archive {}
+	.widget_archive ul {}
+	.widget_archive ul li {}
+	.widget_archive ul li a {}
+	.widget_archive select {}
+	.widget_archive option {}
+
+	/* tag-cloud widget */
+	.widget_links {}
+	.widget_links li:after {}
+	.widget_links li:before {}
+	.widget_tag_cloud {}
+	.widget_tag_cloud a {}
+	.widget_tag_cloud a:after {}
+	.widget_tag_cloud a:before {}
+
+	/* calendar widget */
+	.widget_calendar {}
+	#calendar_wrap {}
+	#calendar_wrap th {}
+	#calendar_wrap td {}
+	#wp-calendar tr td {}
+	#wp-calendar caption {}
+	#wp-calendar a {}
+	#wp-calendar #today {}
+	#wp-calendar #prev {}
+	#wp-calendar #next {}
+	#wp-calendar #next a {}
+	#wp-calendar #prev a {}
+
+	/* category widget */
+	.widget_categories {}
+	.widget_categories ul {}
+	.widget_categories ul li {}
+	.widget_categories ul ul.children {}
+	.widget_categories a {}
+	.widget_categories select{}
+	.widget_categories select#cat {}
+	.widget_categories select.postform {}
+	.widget_categories option {}
+	.widget_categories .level-0 {}
+	.widget_categories .level-1 {}
+	.widget_categories .level-2 {}
+	.widget_categories .level-3 {}
+
+	/* recent-comments widget */
+	.recentcomments {}
+	#recentcomments {}
+	#recentcomments li {}
+	#recentcomments li a {}
+	.widget_recent_comments {}
+
+	/* search widget */
+	#searchform {}
+	.widget_search {}
+	.screen-reader-text {}
+
+	/* text widget */
+	.textwidget {}
+	.widget_text {}
+	.textwidget p {}
+
+
+/*********************
+FOOTER STYLES
+*********************/
+
+/*
+you'll probably need to do quite a bit
+of overriding here if you styled them for
+mobile. Make sure to double check these!
+*/
+
+
+.footer {
+	text-align:center;
+	p { margin:0; }
+	background:none;
+	color:#3FAEDD;
+	font-size:1em;
+
+	nav {
+		ul.nav {
+			margin:0;
+			li {
+				display:inline;
+				margin-right:3px;
+
+				&:before { content: "/"; margin-right:4px; font-size:1.125em; }
+				&:first-child:before { display:none; }
+				a {
+					color:#3FAEDD;
+					font-weight:normal; background:none; display:inline; padding:0; text-decoration:underline;
+					&:hover { color:@highlight-color; }
+				}
+				/*
+				be careful with the depth of your menus.
+				it's very rare to have multi-depth menus in
+				the footer.
+				*/
+				ul {}
+			}
+		}
+	}
+}
+
+body.single {
+	#main { width: 65.979381443299%; }
+	.sidebar { width: 30.927835051546%; margin-left:0; clear:none; }
+}
+
+#related-stories {
+
+	//max-width:610px;
+
+	.widgetLink();
+
+	ul {
+		margin:0;
+		.clearfix();
+		li {
+			float:left;
+			width:31.7708333333333%;
+			margin-left:2.34375%;
+			margin-bottom:2em;
+			&:first-child { margin-left:0; }
+		}
+	}
+}
+
+.fb-comments, .fb-comments span, .fb-comments iframe { width: 100% !important; }
+
+
+#content #inner-content header#featured {
+	ul {
+		height:286px;
+		li {
+			position:absolute;
+			width:100%;
+			height:100%;
+			height:286px;
+			a.img { width:55.6701030927835%; height:286px; max-width:none; }
+		}
+	}
+	nav {
+		position:static;
+		height:0;
+		a { top:120px; }
+	}
+}

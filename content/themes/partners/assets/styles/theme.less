@@ -1,0 +1,249 @@
+@import (less) "_mixins.less";
+@import (less) "_base.less";
+@import (less) "responsive.less";
+
+.inner{
+	max-width: 960px;
+	margin: 0px auto; 
+}
+
+/*======================================*
+ *	General
+ *======================================*/
+
+ body {
+ 	font-family: @sans-serif;
+ 	font-size: 100%;
+ 	line-height: 1.5;
+ 	color: #565656;
+ 	min-width:320px;
+ 	width: 100%;
+ }
+ #page{
+ 	overflow: hidden;
+ }
+
+#masthead,
+#colophon{
+	width: 100%;
+	float: left;
+}
+
+/*======================================*
+ *	Header
+ *======================================*/
+#masthead{
+	@header-height: 170px;
+
+	height: @header-height;
+	border-bottom: 5px solid darken(@link-color, 10%);
+	
+	.inner{
+		height: @header-height;
+	}
+	
+	.site-branding{
+		position: absolute;
+		top: 75%;
+		width: 100%;
+		margin-top: -(@header-height / 2); 
+
+		text-transform: uppercase;
+		font-weight: 700;
+		color: #ffffff;
+
+		h1{
+			font-size: 3.4em;
+			a{
+				color: inherit;
+			}
+		}
+	}
+}
+
+/*======================================*
+ *	Content
+ *======================================*/
+#content{
+	font-size: 1.6em;
+	min-width: 340px;
+	padding: 2%;
+
+	#primary{
+		width: 65%;
+		padding-right: 2%;
+		float: left;
+
+		.post,
+		.page{
+			padding: 1.5em;
+			background: darken( rgba(255,255,255, 0.5), 10%);
+			border-bottom: 5px solid darken(rgba(255,255,255, 0.5), 20%);
+
+			a{
+				color: @link-color;
+				
+				&:hover{
+					color: darken(@link-color, 10%);
+					text-decoration: underline;
+				}
+				&:visited{
+					color: @link-color
+				}
+			}
+		}
+
+		.entry-title{
+			text-transform: uppercase;
+
+		}
+
+		.entry-meta{
+			text-transform: lowercase;
+		}
+	}
+	#secondary{
+		width: 35%;
+		float: left;
+		margin-top: 12px;
+
+		.widget-title{
+			padding: 0.2em .6em;
+			color: #fefefe;
+			margin-bottom: 0.5em;
+			font-size: 1.25em;
+			background:#4ab5e1;
+			text-transform:uppercase;
+			margin-bottom: 1.25em;
+			border-bottom: 5px solid darken(#4ab5e1, 10%);
+		}
+
+		.search-field {
+		    padding: 0.2em;
+		    border-radius: 0px;
+		    font-size: 1.6em;
+		    max-width: 100%;
+		    width: 96%;
+		    box-sizing: content-box;
+		    display: inline-block;
+		}
+	}
+
+}
+/*======================================*
+ *	Footer
+ *======================================*/
+#colophon{
+	max-width: 100%;
+	padding: 2%;
+	margin: 0px auto;
+	border-top: 5px solid darken(@link-color, 10%);
+
+	&.site-footer{
+		text-align: center;
+		color: #fefefe;
+		font-size: 1.6em;
+	}
+}
+
+/*======================================*
+ *	Comments
+ *======================================*/
+#comments{
+	padding: 1.5em;
+	float: left;
+
+	.comment-list {
+	    margin: 0px 0px 0px 0px;
+	    list-style-type: none;
+	}
+	.avatar.photo.avatar-default {
+	    margin-left: -74px;
+	    padding: 0px;
+	    width: 100px;  height: 100px;  background: red;  -moz-border-radius: 50px;  -webkit-border-radius: 50px;  border-radius: 50px;
+	    border: 5px solid;
+	    float: left;
+	    margin-right: 35px;
+	}
+	.fn {
+	    float: left;
+	}
+	.says {
+	    float: left;
+	    padding: 0px 8px;
+	}
+	.comment-metadata {
+	    float: left;
+	    width: 100%;
+	    padding-left: 60px;
+	}
+	.comment-content {
+	    float: left;
+	    padding-left: 60px;
+	}
+	.reply {
+	    float: left;
+	    padding-left: 60px;
+	}
+	.comment {
+	    border-bottom: 5px solid #dedede;
+	    float: left;
+	    margin-left: -24px;
+	    margin-right: -24px;
+	    margin-bottom: 1.5em;
+	    padding: 1.5em;
+	    background: darken( rgba(255,255,255, 0.5), 10%);
+		border-bottom: 5px solid darken(rgba(255,255,255, 0.5), 20%);
+	}
+	.comment-author.vcard {
+	    float: left;
+	    max-height: 24px;
+	}
+
+	#respond{
+		float: left;
+		margin-left: -24px;
+		margin-right: -24px;
+		padding-left: 24px;
+		padding-right: 24px;
+		padding-top: 24px;
+		background: darken( rgba(255,255,255, 0.5), 10%);
+		border-bottom: 5px solid darken(rgba(255,255,255, 0.5), 20%);
+
+		p{
+			float: left;
+			width: 100%;
+		}
+
+		label{
+			width: 30%;
+			float: left;
+		}
+		input,
+		textarea{
+			width: 65%;
+			float: left;
+			padding: 0.4em;
+			border-radius: 0px;
+		}
+
+		.form-submit{
+			#submit{
+				width: 100%;
+				padding: 0.4em;
+				font-size: 1.6em;
+				text-align: center;
+				border-radius: 0px;
+				box-shadow: none;
+				text-shadow: none;
+				background: @link-color;
+				border-bottom: 5px solid darken(@link-color, 10%);
+
+				&:hover{
+					background: darken(@link-color, 10%);
+					border-bottom: 5px solid darken(@link-color, 20%);
+				}
+			}
+		}
+	}
+}
